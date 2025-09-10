@@ -1,11 +1,10 @@
 from app.database import create_tables
-from nicegui import ui
+import app.mario_game
 
 
 def startup() -> None:
     # this function is called before the first request
     create_tables()
 
-    @ui.page("/")
-    def index():
-        ui.label("🚧 Work in progress 🚧").style("font-size: 2rem; text-align: center; margin-top: 2rem")
+    # Initialize the Mario game module
+    app.mario_game.create()
